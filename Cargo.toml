@@ -1,0 +1,5 @@
+[workspace]
+members = [
+    "smalltest",
+    "smalltest_derive",
+]
