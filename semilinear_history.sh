@@ -1,8 +1,17 @@
 #!/bin/sh
 
+set -e
+
+git fetch origin master
+
 local_hash=$(git rev-parse HEAD)
+echo $local_hash
+
 hash1=$(git show-ref -s origin/master)
-hash2=$(git merge-base origin/master $local_hash)
+echo $hash1
+
+hash2=$(git merge-base $hash1 $local_hash)
+echo $hash2
 
 if [ "${hash1}" = "${hash2}" ]
 then
