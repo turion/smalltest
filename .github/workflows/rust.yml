@@ -27,9 +27,11 @@ jobs:
       run: cargo check
     - name: Lint
       run: cargo clippy --all-targets --all-features -- -D warnings
+    - name: Check whether history is semilinear
+      run: ./semilinear_history.sh
+    - name: Clean history
+      run: ./clean_history.sh
     - name: Build
       run: cargo build --verbose
     - name: Run tests
       run: cargo test --verbose
-    - name: Check whether history is semilinear
-      run: ./semilinear_history.sh
