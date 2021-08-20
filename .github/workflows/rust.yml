@@ -16,6 +16,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: Cache Cargo
+      uses: actions/cache@v2
+      with:
+        key: cargo-cache
+        path: ~/.cargo/registry
     - name: Formatter
       run: cargo fmt -- --check
     - name: Typecheck
